@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Action Bazaar</title>
+    </h:head>
+    <h:body>
+        <h1>Add Bid</h1>
+        <h:form id="bidForm">
+            <h:messages errorStyle="color: red"/>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="item">Item name:</h:outputLabel>
+                <h:inputText id="itemTextField" value="#{bid.item}" />
+                <h:outputLabel for="bidder">Bidder name:</h:outputLabel>
+                <h:inputText id="bidderTextField" value="#{bid.bidder}" />
+                <h:outputLabel for="amount">Bid amount:</h:outputLabel>
+                <h:inputText id="amountTextField" value="#{bid.amount}" />
+            </h:panelGrid>
+            <h:commandButton id="addBidButton" value="Add Your Bid"
+                             action="#{addBid.onAdd()}" />
+        </h:form>
+    </h:body>
+</html>
