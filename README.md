@@ -4,7 +4,8 @@ This application demonstrates how Java EE applications can be effectively
 tested using Arquillian on WebLogic 12.1.3. The application contains a 
 set of JUnit tests that you should examine. The tests will be run as part 
 of the Maven build. The tests require a running instance of 
-WebLogic (please see setup instructions).
+WebLogic (please see setup instructions). The WebLogic Maven plugins used as 
+part of the build also 
 
 WebLogic 12.1.3 supports Java EE 6 and some key Java EE 7 APIs - 
 WebSocket, JAX-RS 2, JSON-P and JPA 2.1. The application uses both
