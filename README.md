@@ -4,8 +4,8 @@ This application demonstrates how Java EE applications can be effectively
 tested using Arquillian on WebLogic 12.1.3. The application contains a 
 set of JUnit tests that you should examine. The tests will be run as part 
 of the Maven build. The tests require a running instance of 
-WebLogic (please see setup instructions). The WebLogic Maven plugins used as 
-part of the build also 
+WebLogic (please see setup instructions). The WebLogic Maven plugin used as 
+part of the build also requires a running instance of WebLogic to be present.
 
 WebLogic 12.1.3 supports Java EE 6 and some key Java EE 7 APIs - 
 WebSocket, JAX-RS 2, JSON-P and JPA 2.1. The application uses both
@@ -30,6 +30,12 @@ Setup
   to 'jdbc/ActionBazaarDB'. We used embedded Derby but any underlying database
   should work. If helpful, a sample WebLogic data source definition is provided 
   [here](ActionBazaarDB-jdbc.xml).
+* The demo application uses the WebLogic Maven plugin to automatically deploy
+  as part of the build. You will need to enable the plugin in your environment.
+  The detailed instructions to do this can be found 
+  [here](http://docs.oracle.com/middleware/1213/wls/WLPRG/maven.htm). This 
+  resource also contains details on how to configure the Maven plugin, which 
+  you will need to do (see below).
 * Please download this repository. You can use Git or just the simple zip
   download.
 * The demo is just a simple Maven project under the [actionbazaar](actionbazaar)
@@ -42,5 +48,12 @@ Setup
   of your running WebLogic instance (you could run the instance via the IDE).
   For details on configuring WebLogic for Arquillian, look 
   [here] (https://docs.jboss.org/author/display/ARQ/WLS+12.1+-+Remote).
-* If desired, you can deploy and run the application itself. We did this both
-  via NetBeans and by using the plain Maven generated war file.
+* The build also automatically undeploys and deploys the application to the 
+  running WebLogic instance using the WebLogic Maven plugin. Please configure
+  the plugin in the [Maven POM](actionbazaar/pom.xml) with the details 
+  of your running WebLogic instance.
+* If desired, you can deploy and run the application manually. We did this both
+  via NetBeans and by using the plain Maven generated war file in addition to 
+  the automated build.
+* You can hook up the build to a continuous integration server such as Hudson.
+  We tested such a setup. 
